@@ -19,7 +19,7 @@
   
   # Networking
   networking = {
-    hostName = "nixos";
+    hostName = "ohert-server";
     # networking = true; # Wireless network
     networkmanager.enable = true;
 
@@ -75,16 +75,16 @@
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.rasmuso = {
+  users.users.ohert = {
     isNormalUser = true;
-    description = "Rasmus Ohert";
+    description = "Ohert Server";
     extraGroups = [ "networkmanager" "wheel" ];
   };
 
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
     users = {
-      "rasmuso" = import ./home.nix;
+      "ohert" = import ./home.nix;
     };
   };
 

@@ -6,7 +6,7 @@
   ];
 
   home = {
-    username = "rasmuso";
+    username = "ohert";
     stateVersion = "25.11";
     sessionVariables = {};
   };

@@ -9,8 +9,8 @@
       '';
 
       shellAbbrs = {
-        nt = "sudo nixos-rebuild test --flake /home/rasmuso/nixos#nixos --show-trace";
-        ns = "sudo nixos-rebuild switch --flake /home/rasmuso/nixos#nixos --show-trace";
+        nt = "sudo nixos-rebuild test --flake /home/ohert/nixos#nixos --show-trace";
+        ns = "sudo nixos-rebuild switch --flake /home/ohert/nixos#nixos --show-trace";
         nr = "sudo nix-collect-garbage -d";
         nv = "nvim";
         v = "nvim";
