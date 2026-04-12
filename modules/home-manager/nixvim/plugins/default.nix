@@ -8,6 +8,7 @@
     ./colorschemes.nix
     ./comment.nix
     ./conform.nix
+    ./toggleterm.nix
     ./dressing.nix
     ./indent-blankline.nix
     ./lazygit.nix
