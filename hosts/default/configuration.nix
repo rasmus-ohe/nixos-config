@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, lib, ... }:
 
 {
   imports =
@@ -67,6 +67,16 @@
 	PermitRootLogin = "yes";
       };
     };
+
+    cockpit = {
+      enable = true;
+      port = 9090;
+      openFirewall = true;
+      settings.WebService = {
+	AllowUnencrypted = true;
+	Origins = lib.mkForce "http://localhost:9090 https://localhost:9090";
+      };
+    };
   };
 
   hardware = {
@@ -101,18 +111,19 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
-    vim
-    wget
-    git
-    curl
-    wget
-    lazygit
-    gh
-    fzf
-    fd
-    tree
-    btop
-    fastfetch
+      vim
+      wget
+      git
+      curl
+      wget
+      lazygit
+      gh
+      fzf
+      fd
+      tree
+      btop
+      fastfetch
+      cockpit
   ];
 
   system.stateVersion = "25.11"; # Did you read the comment?
