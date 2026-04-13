@@ -15,7 +15,7 @@ gh auth login --web -p https
 ## Build ISO image
 
 ``` bash
-nixos-rebuild build-image --image-variant iso --flake .#<host name>
+nixos-rebuild build-image --image-variant iso-installer --flake .#<host name> -v
 ```
 
 ## Host info
