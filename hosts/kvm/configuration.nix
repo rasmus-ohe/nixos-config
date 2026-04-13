@@ -94,7 +94,7 @@
   home-manager = {
     extraSpecialArgs = { inherit inputs userName; };
     users = {
-      "ohert" = import ./home.nix;
+      "${userName}" = import ./home.nix;
     };
   };
 
