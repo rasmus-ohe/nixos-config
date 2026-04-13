@@ -11,3 +11,17 @@ tide configure --auto --style=Lean --prompt_colors='True color' --show_time=No -
 ```bash
 gh auth login --web -p https
 ```
+
+## Build ISO image
+
+``` bash
+nixos-rebuild build-image --image-variant iso --flake .#<host name>
+```
+
+## Host info
+
+### kvm
+
+Only meant for VM usage.
+
+Initial password `= ""`
