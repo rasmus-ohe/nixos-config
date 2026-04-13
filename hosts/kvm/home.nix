@@ -1,4 +1,4 @@
-{ config, pkgs, userName ... }:
+{ config, pkgs, userName, ... }:
 
 {
   imports = [
@@ -6,7 +6,7 @@
   ];
 
   home = {
-    username = ${userName};
+    username = "${userName}";
     stateVersion = "25.11";
     sessionVariables = {};
   };

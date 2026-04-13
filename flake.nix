@@ -23,7 +23,7 @@
       hostName = "kvm";
     in
     {
-      nixosConfigurations.${host} = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.${hostName} = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs userName hostName;};
         modules = [
           ./hosts/${hostName}/configuration.nix

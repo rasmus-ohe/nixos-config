@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, lib, userName, hostName ... }:
+{ config, pkgs, inputs, lib, userName, hostName, ... }:
 
 {
   imports =
@@ -19,7 +19,7 @@
   
   # Networking
   networking = {
-    hostName = ${hostName};
+    hostName = "${hostName}";
     # networking = true; # Wireless network
     networkmanager.enable = true;
 
@@ -85,14 +85,14 @@
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.${userName} = {
+  users.users."${userName}" = {
     isNormalUser = true;
-    description = ${userName};
+    description = "${userName}";
     extraGroups = [ "networkmanager" "wheel" ];
   };
 
   home-manager = {
-    extraSpecialArgs = { inherit inputs; };
+    extraSpecialArgs = { inherit inputs userName; };
     users = {
       "ohert" = import ./home.nix;
     };
