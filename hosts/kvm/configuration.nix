@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, lib, ... }:
+{ config, pkgs, inputs, lib, userName, hostName ... }:
 
 {
   imports =
@@ -19,13 +19,13 @@
   
   # Networking
   networking = {
-    hostName = "ohert-server";
+    hostName = ${hostName};
     # networking = true; # Wireless network
     networkmanager.enable = true;
 
     firewall = {
       enable = true;
-      allowedTCPPorts = [ 9090 ];
+      # allowedTCPPorts = [ ... ];
       # allowedUDPPorts = [ ... ];
     };
   };
@@ -67,16 +67,6 @@
 	PermitRootLogin = "yes";
       };
     };
-
-    cockpit = {
-      enable = true;
-      port = 9090;
-      openFirewall = true;
-      settings.WebService = {
-	AllowUnencrypted = true;
-	Origins = lib.mkForce "http://localhost:9090 https://localhost:9090";
-      };
-    };
   };
 
   hardware = {
@@ -85,9 +75,9 @@
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.ohert = {
+  users.users.${userName} = {
     isNormalUser = true;
-    description = "Ohert Server";
+    description = ${userName};
     extraGroups = [ "networkmanager" "wheel" ];
   };
 

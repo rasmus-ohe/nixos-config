@@ -19,12 +19,14 @@
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
+      userName = "nixos";
+      hostName = "kvm";
     in
     {
-      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
+      nixosConfigurations.${host} = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs userName hostName;};
         modules = [
-          ./hosts/default/configuration.nix
+          ./hosts/${hostName}/configuration.nix
           inputs.home-manager.nixosModules.default
           ./modules/nixos
         ];
