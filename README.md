@@ -8,4 +8,6 @@ tide configure --auto --style=Lean --prompt_colors='True color' --show_time=No -
 
 ## Github login
 
-`gh auth login --web -p https`
+```bash
+gh auth login --web -p https
+```
