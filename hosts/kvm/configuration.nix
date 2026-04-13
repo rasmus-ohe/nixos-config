@@ -88,6 +88,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users."${userName}" = {
     isNormalUser = true;
+    initialPassword = "";
     description = "${userName}";
     extraGroups = [ "networkmanager" "wheel" ];
   };
