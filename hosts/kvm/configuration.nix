@@ -30,6 +30,7 @@
     };
     
     # Static QEMU network
+    
     interfaces.enp1s0 = {
       ipv4.addresses = [{
 	address = "192.168.122.200";
@@ -113,17 +114,14 @@
   environment.systemPackages = with pkgs; [
       vim
       wget
-      git
       curl
       wget
       lazygit
-      gh
       fzf
       fd
       tree
       btop
       fastfetch
-      cockpit
   ];
 
   system.stateVersion = "25.11"; # Did you read the comment?

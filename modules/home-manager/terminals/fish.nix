@@ -9,11 +9,19 @@
       '';
 
       shellAbbrs = {
-        nt = "sudo nixos-rebuild test --flake /home/ohert/nixos#nixos --show-trace";
-        ns = "sudo nixos-rebuild switch --flake /home/ohert/nixos#nixos --show-trace";
+        # NixOS
+        ntk = "sudo nixos-rebuild test --flake .#kvm --show-trace";
+        nsk = "sudo nixos-rebuild switch --flake .#kvm --show-trace";
         nr = "sudo nix-collect-garbage -d";
+
+        # Nvim
         nv = "nvim";
         v = "nvim";
+
+        # Git
+        ga = "git add -A";
+        lg = "lazygit";
+        lz = "lazygit";
       };
 
       plugins = [

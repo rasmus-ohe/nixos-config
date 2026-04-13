@@ -13,14 +13,26 @@
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/e10bd5cc-8812-4458-9f95-d7a8f5553a5a";
-      fsType = "ext4";
-    };
-
-  swapDevices =
-    [ { device = "/dev/disk/by-uuid/00f49982-cd16-42d2-bb5a-7948cde53305"; }
+  fileSystems."/" = {
+    device = "/dev/disk/by-label/root";
+    autoResize = true;
+    fsType = "ext4";
+  };
+  
+  # Mount from KVM
+  fileSystems."/mnt/shared" = {
+    device = "/mnt/shared";
+    fsType = "9p";
+    options = [
+      "trans=virtio"
+      "version=9p2000.L"
+      "nofail"
     ];
+  };
+
+  # swapDevices =
+  #   [ { device = "/dev/disk/by-uuid/a0b3f273-ffdc-4c0e-bc96-71e53dae9210"; }
+  #   ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 }
