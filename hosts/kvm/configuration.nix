@@ -78,6 +78,12 @@
 	PermitRootLogin = "yes";
       };
     };
+
+    cloneNixosConfig = {
+      enable = true;
+      user = "${userName}";
+      repoUrl = "https://github.com/rasmus-ohe/nixos-config.git";
+    };
   };
 
   hardware = {
