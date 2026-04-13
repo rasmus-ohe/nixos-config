@@ -6,6 +6,9 @@
       enable = true;
       interactiveShellInit = ''
         set fish_greeting # disable greeting
+
+        cd ~/nixos-config/
+        fastfetch
       '';
 
       shellAbbrs = {

@@ -24,4 +24,4 @@ nixos-rebuild build-image --image-variant iso --flake .#<host name>
 
 Only meant for VM usage.
 
-Initial password `= ""`
+Initial password `= "nixos"`

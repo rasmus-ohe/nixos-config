@@ -88,7 +88,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users."${userName}" = {
     isNormalUser = true;
-    initialPassword = "";
+    initialPassword = "nixos";
     description = "${userName}";
     extraGroups = [ "networkmanager" "wheel" ];
   };
@@ -113,16 +113,17 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
-      vim
-      wget
-      curl
-      wget
-      lazygit
-      fzf
-      fd
-      tree
-      btop
-      fastfetch
+    vim
+    wget
+    curl
+    wget
+    lazygit
+    fzf
+    fd
+    tree
+    btop
+    fastfetch
+    ncdu
   ];
 
   system.stateVersion = "25.11"; # Did you read the comment?
